@@ -1,1 +1,1 @@
-# crypto_api
+# API for Cryptocurrency Prices
