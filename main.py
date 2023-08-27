@@ -4,13 +4,22 @@ from bs4 import BeautifulSoup as bs
 btc_url = 'https://www.coindesk.com/price/bitcoin/'
 eth_url = 'https://www.coindesk.com/price/ethereum/'
 doge_url = 'https://www.coindesk.com/price/dogecoin/'
-lts_url = 'https://www.coindesk.com/price/dogecoin/'
+ltc_url = 'https://www.coindesk.com/price/dogecoin/'
 
 
-r = requests.get(url)
+btc_req = requests.get(btc_url)
+eth_req = requests.get(eth_url)
+doge_req = requests.get(doge_url)
+ltc_req = requests.get(ltc_url)
 
-soup = bs(r.content, "html.parser")
 
-price = soup.find("span", {"class":"currency-pricestyles__Price-sc-1rux8hj-0 eEpEzP"})
+btc_soup = bs(btc_req.content, "html.parser")
+eth_soup = bs(eth_req.content, "html.parser")
+doge_soup = bs(doge_req.content, "html.parser")
+ltc_soup = bs(ltc_req.content, "html.parser")
 
-print(price.text)
+btc_price = btc_soup.find("span", {"class":"currency-pricestyles__Price-sc-1rux8hj-0 eEpEzP"}).text
+eth_price = eth_soup.find("span", {"class":"currency-pricestyles__Price-sc-1rux8hj-0 eEpEzP"}).text
+doge_price = doge_soup.find("span", {"class":"currency-pricestyles__Price-sc-1rux8hj-0 eEpEzP"}).text
+ltc_price = ltc_soup.find("span", {"class":"currency-pricestyles__Price-sc-1rux8hj-0 eEpEzP"}).text
+
