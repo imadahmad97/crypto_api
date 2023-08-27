@@ -1,4 +1,5 @@
 import requests
+import jsonify
 from bs4 import BeautifulSoup as bs
 
 btc_url = 'https://www.coindesk.com/price/bitcoin/'
@@ -20,6 +21,7 @@ ltc_soup = bs(ltc_req.content, "html.parser")
 
 btc_price = btc_soup.find("span", {"class":"currency-pricestyles__Price-sc-1rux8hj-0 eEpEzP"}).text
 eth_price = eth_soup.find("span", {"class":"currency-pricestyles__Price-sc-1rux8hj-0 eEpEzP"}).text
-doge_price = doge_soup.find("span", {"class":"currency-pricestyles__Price-sc-1rux8hj-0 eEpEzP"}).text
-ltc_price = ltc_soup.find("span", {"class":"currency-pricestyles__Price-sc-1rux8hj-0 eEpEzP"}).text
+#doge_price = doge_soup.find("span", {"class":"currency-pricestyles__Price-sc-1rux8hj-0 eEpEzP"}).text
+ltc_price = ltc_soup.find("span", {"class":"currency-pricestyles__Price-sc-1rux8hj-0 eEpEzP"})
 
+print(ltc_price)
